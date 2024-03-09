@@ -1,0 +1,16 @@
+<div class="search-container">
+  <div class="search-input-container">
+    <input class="search-input" (input)="search($event)" placeholder="Search for GitHub users" />
+  </div>
+
+  <div *ngIf="searchResults" class="search-results">
+    <h2 class="search-results-heading">Search Results:</h2>
+    <div class="user-grid">
+      <div *ngFor="let user of searchResults; let i=index" class="user-card">
+        <div class="user-index">{{i+1 }}</div>
+        <img class="user-avatar" [src]="user.avatar_url" alt="Avatar">
+        <p class="user-name">{{ user.login }}</p>
+      </div>
+    </div>
+  </div>
+</div>
